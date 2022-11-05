@@ -53,7 +53,7 @@ def individualStock():
     # "stat":"查詢日期小於99年1月4日，請重新查詢!"
     stackNo = flask.request.args.get("stockNo")
     # stackNo = "0050"
-    date = 20220101  # 起始年月份(都是只要1日)
+    date = 202201001  # 起始年月份(都是只要1日)
     date_max = 20221101  # 現在最新年月份
     ua = UserAgent()
     data = pd.DataFrame()
