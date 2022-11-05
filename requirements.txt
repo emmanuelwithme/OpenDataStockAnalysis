@@ -1,7 +1,4 @@
 flask
 pandas
 fake_useragent
-io
-time
-random
 gunicorn
