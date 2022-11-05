@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>個股查詢</title>
+{% endblock %}
+
+{% block body %}
+<div class="text-bg-primary p-3 fs-1">
+    個股查詢
+</div>
+<div class="container">
+    <p>請靜待20-25秒!</p>
+    {% for table in tables %}
+        {{titles[loop.index]}}
+        {{ table|safe }}
+    {% endfor %}
+</div>
+{% endblock %}

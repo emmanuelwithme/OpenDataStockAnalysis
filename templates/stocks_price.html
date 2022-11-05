@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block head%}
+<title>來看股價</title>
+{% endblock%}
+{% block body%}
+<div class="text-bg-primary p-3 fs-1">
+    Stock Price.
+</div>
+<table class="table table-striped table-bordered table-hover hover-primary">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+
+            {% for key,value in data_name_dict.items() %}
+            <th scope="col">{{ value }}</th>
+            {% endfor %}
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for individualStock in data %}
+        <tr>
+            <th scope="row">{{ loop.index0+1 }}</th>
+            {% for key, value in individualStock.items() %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock%}

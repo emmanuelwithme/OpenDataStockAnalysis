@@ -1,0 +1,4 @@
+flask
+pandas
+fake_useragent
+gunicorn
