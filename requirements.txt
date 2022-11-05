@@ -1,4 +1,5 @@
 flask
 pandas
 fake_useragent
+requests
 gunicorn
