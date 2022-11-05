@@ -1,6 +1,5 @@
 flask
 pandas
-urllib
 requests
 fake_useragent
 plotly
