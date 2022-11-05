@@ -1,5 +1,4 @@
 import json
-import requests
 from urllib import request
 import flask
 import pandas as pd
