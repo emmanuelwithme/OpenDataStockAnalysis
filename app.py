@@ -103,7 +103,7 @@ def individualStock():
     clrgrn = False
     clrs = []
     for row in data.itertuples():
-        print(row.漲跌價差, type(row.漲跌價差))
+        # print(row.漲跌價差, type(row.漲跌價差))
         try:
             ups_downs = float(row.漲跌價差)
         except:
