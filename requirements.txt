@@ -1,6 +1,6 @@
 flask
 pandas
 requests
-fake_useragent
+fake-useragent
 plotly
 gunicorn
