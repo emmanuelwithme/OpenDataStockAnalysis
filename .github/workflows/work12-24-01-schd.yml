@@ -7,6 +7,10 @@ on:
       - 'work12_24_01/**'
       - '.github/workflows/work12-24-01-schd.yml'
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'work12_24_01/**'
+      - '.github/workflows/work12-24-01-schd.yml'
 
 permissions:
   contents: read
