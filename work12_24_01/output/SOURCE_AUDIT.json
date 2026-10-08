@@ -1,7 +1,7 @@
 {
   "work": "WORK12-24-01",
   "ticker": "SCHD",
-  "retrieved_at_utc": "2026-10-08T08:49:24.989541+00:00",
+  "retrieved_at_utc": "2026-10-08T08:55:37.904060+00:00",
   "canonical_written": false,
   "requires_bline_authorized_import": true,
   "official_nav": {
@@ -18,7 +18,7 @@
     "first_date": "2011-10-20",
     "last_date": "2026-10-07",
     "bytes": 377564,
-    "export_sha256": "fafd475a1d105cdd5a9ed9e24804f03a24e78f0ea69c1147e1173c52ac595aed",
+    "export_sha256": "6311bd2142be98aae0e9c75e484440eeb8a980c4932187f8d80e0ac923b4e2fa",
     "missing_nyse_sessions": [],
     "missing_nyse_sessions_count": 0,
     "corporate_action_split_events": [
