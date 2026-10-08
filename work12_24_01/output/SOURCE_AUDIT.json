@@ -1,0 +1,40 @@
+{
+  "work": "WORK12-24-01",
+  "ticker": "SCHD",
+  "retrieved_at_utc": "2026-10-08T08:49:24.989541+00:00",
+  "canonical_written": false,
+  "requires_bline_authorized_import": true,
+  "official_nav": {
+    "url": "https://www.schwabassetmanagement.com/sites/g/files/eyrktu361/files/product_files/SCHD/SCHD_NAV_History.CSV",
+    "status": "BLOCKED",
+    "source_version": null,
+    "error": "HTTPError: 403 Client Error: Forbidden for url: https://www.schwabassetmanagement.com/sites/g/files/eyrktu361/files/product_files/SCHD/SCHD_NAV_History.CSV"
+  },
+  "yahoo_market_data": {
+    "status": "CANDIDATE_FOR_INDEPENDENT_VERIFICATION",
+    "source_version": null,
+    "file": "SCHD_YAHOO_MARKET_OHLCV_ADJCLOSE_DIVIDENDS_SPLITS.csv",
+    "rows": 3762,
+    "first_date": "2011-10-20",
+    "last_date": "2026-10-07",
+    "bytes": 377564,
+    "export_sha256": "fafd475a1d105cdd5a9ed9e24804f03a24e78f0ea69c1147e1173c52ac595aed",
+    "missing_nyse_sessions": [],
+    "missing_nyse_sessions_count": 0,
+    "corporate_action_split_events": [
+      {
+        "Date": "2024-10-11",
+        "Stock Splits": 3.0
+      }
+    ],
+    "data_class": "THIRD_PARTY_MARKET_DATA",
+    "price_basis": "split-adjusted OHLC, non-dividend-adjusted when auto_adjust=False"
+  },
+  "notes": [
+    "Schwab NAV and Yahoo market prices are different data series.",
+    "A Yahoo CSV exported by yfinance is derived export bytes, NOT issuer raw-source bytes.",
+    "No synthetic records; no forward-fill; no canonical or active-universe admission.",
+    "Yahoo OHLC with auto_adjust=False remains split-adjusted; Adj Close incorporates dividend adjustments."
+  ],
+  "work12_24_01_closeout": "BLOCKED_SOURCE_DOWNLOAD"
+}
