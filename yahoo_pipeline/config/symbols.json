@@ -1,0 +1,60 @@
+{
+  "source": "Yahoo Finance through third-party yfinance",
+  "symbols": [
+    {
+      "ticker": "0050.TW",
+      "name": "元大台灣50",
+      "market": "TW"
+    },
+    {
+      "ticker": "2330.TW",
+      "name": "台積電",
+      "market": "TW"
+    },
+    {
+      "ticker": "VT",
+      "name": "VT全球股票",
+      "market": "US"
+    },
+    {
+      "ticker": "VWRA.L",
+      "name": "VWRA倫敦美元線",
+      "market": "UK"
+    },
+    {
+      "ticker": "VOO",
+      "name": "VOO",
+      "market": "US"
+    },
+    {
+      "ticker": "QQQ",
+      "name": "QQQ",
+      "market": "US"
+    },
+    {
+      "ticker": "SOXX",
+      "name": "SOXX半導體",
+      "market": "US"
+    },
+    {
+      "ticker": "SGOV",
+      "name": "SGOV短債",
+      "market": "US"
+    },
+    {
+      "ticker": "TLT",
+      "name": "TLT長債",
+      "market": "US"
+    },
+    {
+      "ticker": "^VIX",
+      "name": "VIX",
+      "market": "US"
+    },
+    {
+      "ticker": "TWD=X",
+      "name": "USD/TWD參考匯率",
+      "market": "FX"
+    }
+  ]
+}
