@@ -8,6 +8,7 @@ import argparse
 import hashlib
 import ipaddress
 import json
+import os
 import socket
 import sys
 import tempfile
@@ -153,8 +154,12 @@ def main():
     parser.add_argument("--start", default="2020-01-01")
     parser.add_argument("--end", default="2021-01-01")
     args = parser.parse_args()
-    with tempfile.TemporaryDirectory(prefix="work12_24_05_pilot_") as tmp:
-        receipt = controlled_pilot(args.symbol, args.start, args.end, tmp)
+    output = os.environ.get("WORK12_PILOT_OUTPUT")
+    if output:
+        receipt = controlled_pilot(args.symbol, args.start, args.end, output)
+    else:
+        with tempfile.TemporaryDirectory(prefix="work12_24_05_pilot_") as tmp:
+            receipt = controlled_pilot(args.symbol, args.start, args.end, tmp)
         if receipt["classes"]["MARKET_PRICE"]["state"] != "PRESENT":
             raise PilotError("PRICE_MISSING")
         if args.symbol.upper() == "AAPL" and args.start <= "2020-08-31" <= args.end:
