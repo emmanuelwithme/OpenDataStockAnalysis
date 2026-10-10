@@ -4,6 +4,12 @@ on:
     paths:
       - 'yahoo_pipeline/**'
       - '.github/workflows/yahoo_finance.yml'
+  push:
+    branches:
+      - feature/yahoo-finance-research-20261010
+    paths:
+      - 'yahoo_pipeline/**'
+      - '.github/workflows/yahoo_finance.yml'
   workflow_dispatch:
   schedule:
     # Taiwan 07:20 Tue-Sat: US Mon-Fri close
@@ -45,7 +51,7 @@ jobs:
 
   collect:
     needs: test
-    if: github.event_name != 'pull_request'
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -67,3 +73,22 @@ jobs:
             yahoo_pipeline/data/history/
           retention-days: 7
           if-no-files-found: warn
+
+  work12_controlled_pilot:
+    needs: test
+    if: github.event_name == 'push' || github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Syntax and import smoke (no downstream Frozen calculations)
+        run: python -m py_compile yahoo_pipeline/work12_yahoo_live_pilot.py
+      - name: Actual Yahoo chart raw AAPL price dividend split controlled pilot
+        run: python yahoo_pipeline/work12_yahoo_live_pilot.py --symbol AAPL --start 2020-01-01 --end 2021-01-01
+      - name: Actual Yahoo chart raw VOO price and adjusted close controlled pilot
+        run: python yahoo_pipeline/work12_yahoo_live_pilot.py --symbol VOO --start 2025-01-01 --end 2025-12-31
