@@ -1,5 +1,24 @@
-# Market Data Reliability
+最後修改日期時間：2026/10/14 11:05（台灣時間）
+# 股票資料抓取｜六大可靠性工程規則 v1.0
 
-Batching, throttling, bounded retries, caching, backup data sources, and quality validation.
+## 技術路線
+大量股票、債券、ETF 歷史資料優先使用 GitHub Actions＋Python＋yfinance 實際連線下載，支援手動觸發、API觸發與自動排程。批次取得股價、成交量、股息、還原價格，計算績效、最大回撤、TD9、KD、MACD 等指標，保存 CSV／JSON 供後續分析。
 
-When data retrieval fails, retain the last validated snapshot with a stale flag. Do not use stale quotes for new trading signals.
+## 六大可靠性措施
+1. **批次下載**：多標的一次抓取，控制批次大小及並行數量。
+2. **請求節流**：限制請求頻率，加入適當隨機延遲。
+3. **有限重試**：遇 429 或暫時性錯誤，採指數退避及重試上限；持續限流則停止請求。
+4. **資料快取**：避免重複下載，優先增量更新。
+5. **備援來源**：依資料類型選擇可靠來源；總經資料優先採 FRED、BLS、BEA 等官方來源。
+6. **品質驗證**：檢查日期、時區、完整性、缺漏、異常值及資料口徑，區分原始價格、還原價格、配息與含息總報酬。
+
+## 失敗處理
+保留上一份已驗證有效資料，標示最後更新時間、過期狀態與失敗原因；禁止將過期資料當成最新報價或產生未經驗證的即時交易訊號。
+
+## 既有實測參考
+2026/10/10：VOO 在 GitHub 的下載實測成功。
+參考儲存庫：emmanuelwithme/OpenDataStockAnalysis，PR #3。
+實測成功紀錄不等同於六項措施已在所有工作流程完成實作與驗收。
+
+## 工程治理界線
+這是通用市場資料擷取技術標準。Family 家人版現行 No-GitHub 工序、各級 PM 責任、Gate 與 Release Lock 維持原有正式核准安排。
